@@ -14,25 +14,22 @@
     }
     header {
       background-color: #8dc123;
-      color: white;
-      padding: 2rem;
       text-align: center;
+      padding: 2rem;
     }
-    @keyframes shine {
-      0% { box-shadow: 0 0 10px gold; }
-      50% { box-shadow: 0 0 30px gold; }
-      100% { box-shadow: 0 0 10px gold; }
-    }
-    .golden-title {
+    header p.main-title {
       font-size: 45px;
-      color: white;
       font-weight: 900;
-      border: 4px solid gold;
+      color: white;
       display: inline-block;
-      padding: 0.5rem 1.5rem;
+      padding: 0.5rem 1rem;
+      border: 4px solid gold;
       border-radius: 1rem;
-      text-shadow: 0 0 10px gold;
-      animation: shine 2s infinite;
+      text-shadow: 1px 1px 3px #00000055;
+    }
+    header p.subtitle {
+      font-size: 1.2rem;
+      color: white;
     }
     .container {
       padding: 2rem;
@@ -43,11 +40,6 @@
       padding: 2rem;
       border-radius: 1.5rem;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    }
-    .slide {
-      font-size: 1.2rem;
-      transition: opacity 1s ease-in-out;
-      min-height: 3rem;
     }
     form {
       display: flex;
@@ -78,20 +70,33 @@
     h2 {
       color: #1b5e20;
     }
+    .benefit-slide {
+      font-size: 1.3rem;
+      color: #333;
+      transition: opacity 1s ease-in-out;
+      min-height: 3.5rem;
+      font-weight: bold;
+      text-align: right;
+      padding: 1rem;
+      background-color: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <p class="golden-title">چای میوه خوش نوش</p>
-    <p> طعمی اصیل از دل طبیعت...</p>
+    <p class="main-title">چای میوه خوش نوش</p>
+    <p class="subtitle">طعمی اصیل از دل طبیعت...</p>
   </header>
 
   <div class="container">
 
     <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">فواید چای میوه </p>
-      <div id="slides" class="slide"></div>
+      <p style="font-size: 30px; color: Teal; font-weight: 900;">فواید چای میوه</p>
+      <div id="benefitsBox" class="benefit-slide">در حال بارگذاری فواید...</div>
     </section>
 
     <section class="section">
@@ -110,12 +115,12 @@
 
     <section class="section">
       <p style="font-size: 30px; color: Teal; font-weight: 900;">درباره ما</p>
-      <p>چای خوش نوش حاصل عشق ما به طبیعت، سلامتی و طعم‌ ناب طبیعت است. ما با انتخاب بهترین میوه‌ها از بهترین باغ‌های منحصربه‌فرد و دلنشین فراهم کرده‌ایم که هم سلامت شما را تأمین کند و هم بتواند جایگزینی کاملا مناسب برای چای سیاه باشد.</p>
+      <p>چای خوش نوش حاصل عشق ما به طبیعت، سلامتی و طعم‌ ناب طبیعت است. ما با انتخاب بهترین میوه‌ها از بهترین باغ‌های منحصربه‌ فرد و دلنشین فراهم کرده‌ایم که هم سلامت شما را تأمین کند و هم بتواند جایگزینی کاملاً مناسب برای چای سیاه باشد.</p>
     </section>
 
     <section class="section">
       <p style="font-size: 30px; color: Teal; font-weight: 900;">ارتباط با ما</p>
-      <p>جهت سفارش تلفنی - پیگیری سفارش و یا احضار نظر با ما در ارتباط باشید:</p>
+      <p>جهت سفارش تلفنی، پیگیری سفارش و یا اظهارنظر با ما در ارتباط باشید:</p>
       <p>شماره تماس: ۰۹۳۹۸۲۳۴۶۴۴</p>
       <p>شماره تماس: ۰۹۹۹۱۶۹۷۴۹۹</p>
       <p>آیدی تلگرام: @ATLAS515</p>
@@ -124,43 +129,43 @@
   </div>
 
   <footer>
-    بسته‌ بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی می‌باشد
+    بسته‌بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی می‌باشد
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const benefits = [
-        "چای میوه خوشنوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
-        "ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
-"فاقد کافئین، مناسب برای تمام سنین و ساعات روز.",
-        "کمک به بهبود سیستم گوارش و آرامش اعصاب.",
-        "تقویت‌کننده‌ی انرژی روزانه با طعمی ماندگار.",
-        "لوکس‌ترین تجربه‌ی چای میوه‌ای با اصالت ایرانی.",
-        "فاقد افزودنی‌های شیمیایی و نگهدارنده، ۱۰۰٪ طبیعی.",
-        "بهبود کیفیت خواب با نوشیدن قبل از خواب شبانه."
-      ];
+    const benefits = [
+      "چای میوه خوشنوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
+"ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
+      "فاقد کافئین، مناسب برای تمام سنین و ساعات روز.",
+      "کمک به بهبود سیستم گوارش و آرامش اعصاب.",
+      "تقویت‌کننده‌ی انرژی روزانه با طعمی ماندگار.",
+      "لوکس‌ترین تجربه‌ی چای میوه‌ای با اصالت ایرانی.",
+      "فاقد افزودنی‌های شیمیایی و نگهدارنده، ۱۰۰٪ طبیعی.",
+      "بهبود کیفیت خواب با نوشیدن قبل از خواب شبانه.",
+      "کمک به تنظیم فشار خون با مواد مغذی طبیعی.",
+      "پاکسازی کبد و کلیه‌ها با ترکیبات طبیعی میوه‌ای."
+    ];
 
-      let current = 0;
-      const slideBox = document.getElementById("slides");
+    let current = 0;
+    const benefitBox = document.getElementById("benefitsBox");
 
-      function showSlide() {
-        slideBox.style.opacity = 0;
-        setTimeout(() => {
-          slideBox.innerText = benefits[current];
-          slideBox.style.opacity = 1;
-          current = (current + 1) % benefits.length;
-        }, 500);
-      }
+    function showBenefit() {
+      benefitBox.style.opacity = 0;
+      setTimeout(() => {
+        benefitBox.innerText = benefits[current];
+        benefitBox.style.opacity = 1;
+        current = (current + 1) % benefits.length;
+      }, 600);
+    }
 
-      showSlide();
-      setInterval(showSlide, 10000);
+    showBenefit(); 
+    setInterval(showBenefit, 10000); 
 
-      window.calculateTotal = function () {
-        const count = document.getElementById("count").value;
-        const total = count * 95000;
-        document.getElementById("totalPrice").innerText = قیمت کل: ${total.toLocaleString()} تومان;
-      };
-    });
+    function calculateTotal() {
+      const count = document.getElementById("count").value;
+      const total = count * 95000;
+      document.getElementById("totalPrice").innerText = قیمت کل: ${total.toLocaleString()} تومان;
+    }
   </script>
 
 </body>
