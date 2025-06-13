@@ -128,7 +128,7 @@
   </footer>
 
   <script>
-    window.onload = function () {
+    document.addEventListener("DOMContentLoaded", function () {
       const benefits = [
         "چای میوه خوشنوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
         "ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
@@ -160,7 +160,7 @@
         const total = count * 95000;
         document.getElementById("totalPrice").innerText = قیمت کل: ${total.toLocaleString()} تومان;
       };
-    };
+    });
   </script>
 
 </body>
