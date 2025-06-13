@@ -1,119 +1,119 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>خوشنوش</title>
-  <link rel="icon" href="logo.png" type="image/png">
+  <title>چای میوه‌ی خوشنوش</title>
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
-      background: linear-gradient(to bottom, #4e342e, #3e2723);
-      color: #f5f5f5;
+      background-color: #fef3e0;
+      overflow-x: hidden;
     }
     header {
       text-align: center;
-      padding: 60px 20px 10px;
-      font-size: 64px;
+      padding: 60px 20px 20px;
+      font-size: 48px;
       font-weight: bold;
-      color: #d4af37; /* طلایی */
+      color: #5e2d0c;
+      text-shadow: 0 0 10px #e0b97f;
     }
-    .tagline {
-      text-align: center;
-      font-size: 24px;
-      color: #f5deb3;
-      position: relative;
-      padding: 10px 20px 40px;
-    }
-    .tagline::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(255,248,220,0.3) 0%, transparent 80%);
-      pointer-events: none;
-    }
-    .benefits-bar {
-      margin: 20px auto;
-      padding: 20px;
-      width: 90%;
-      max-width: 800px;
-      height: 4.5em;
-      background: linear-gradient(to bottom, rgba(255,248,220,0.2), transparent 40%, rgba(255,248,220,0.2));
-      color: #ffcc80;
-      font-size: 18px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 239, 200, 0.2);
-    }
-    .order-btn-main {
-      display: block;
-      margin: 40px auto;
-      padding: 15px 40px;
-      font-size: 24px;
-      background: #a1887f;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .order-btn-main:hover {
-      background: #8d6e63;
-    }
-    footer {
+    nav {
       display: flex;
       justify-content: center;
       gap: 20px;
-      padding: 30px 0;
+      margin-bottom: 20px;
     }
-    .footer-btn {
-      background: #6d4c41;
-      color: #f5f5f5;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
+    nav button {
+      padding: 8px 16px;
       font-size: 14px;
+      cursor: pointer;
+      border: none;
+      background-color: #d6a35b;
+      color: white;
+      border-radius: 8px;
+    }
+    .slider {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      height: 100px;
+    }
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 30s infinite ease-in-out;
+    }
+    .slide {
+      flex: 1 0 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 500;
+      color: #4b2c10;
+    }
+    @keyframes slide {
+      0%, 33% { transform: translateX(0%); }
+      34%, 66% { transform: translateX(-100%); }
+      67%, 100% { transform: translateX(-200%); }
+    }
+    section {
+      transition: all 0.8s ease;
+    }
+    .panel {
+      display: none;
+      padding: 20px;
+      background: #fff5e6;
+      border-top: 2px solid #d6a35b;
+    }
+    .panel.show {
+      display: block;
+      animation: slideIn 0.6s ease forwards;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .order-btn {
+      display: block;
+      margin: 40px auto;
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #a86b2d;
+      color: white;
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <header>خوشنوش</header>
-  <div class="tagline">با یک فنجان، به دل طبیعت بزن...</div>
-  <div class="benefits-bar" id="benefits">سلامتی قلب، با چای سیب طبیعی.</div>
-  <button class="order-btn-main" onclick="openOrderPanel()">ثبت سفارش چای</button>
-  <footer>
-    <button class="footer-btn" onclick="alert('من با دستگاه‌های صنعتی ساده، سیب‌های درجه‌یک از باغ‌های مختلف می‌خرم، فرآوری می‌کنم و داخل پاکت‌هایی بسته‌بندی می‌کنم که هیچ هوایی ازش رد نمی‌شه. کاملاً بهداشتی و مطمئن.')">درباره ما</button>
-    <button class="footer-btn" onclick="alert('شماره تماس: ۰۹۳۹۸۲۳۴۶۴۴\nآیدی تلگرام:')">ارتباط با ما</button>
-  </footer>
-
+  <header>چای میوه‌ی خوشنوش</header>
+  <nav>
+    <button onclick="showPanel('about')">درباره ما</button>
+    <button onclick="showPanel('contact')">ارتباط با ما</button>
+  </nav>
+  <div class="slider">
+    <div class="slides">
+      <div class="slide">سرشار از آنتی‌اکسیدان برای محافظت از قلب</div>
+      <div class="slide">افزایش انرژی بدون کافئین</div>
+      <div class="slide">تقویت سیستم ایمنی با ترکیبات طبیعی</div>
+    </div>
+  </div>
+  <button class="order-btn" onclick="scrollToPanel('order')">ثبت سفارش چای</button>
+  <section id="about" class="panel">ما عاشق طعم‌های طبیعی و سلامت هستیم. خوشنوش نتیجهٔ همین عشق است.</section>
+  <section id="contact" class="panel">برای سفارش تلفنی: ۰۹۳۹۸۲۳۴۶۴۴</section>
+  <section id="order" class="panel">فرم سفارش شما اینجاست...</section>
   <script>
-    const benefits = [
-      'سلامتی قلب، با چای سیب طبیعی.',
-      'افزایش انرژی روزانه با ترکیبات آنتی‌اکسیدانی.',
-      'کاهش التهاب و تقویت سیستم ایمنی.',
-      'شادابی پوست و مو با نوشیدن منظم.',
-      'بهبود گوارش و متابولیسم طبیعی.',
-      'تسکین استرس و آرامش ذهنی.',
-      'بدون مواد افزودنی؛ فقط طعم واقعی طبیعت.'
-    ];
-    let index = 0;
-    setInterval(() => {
-      index = (index + 1) % benefits.length;
-      document.getElementById('benefits').textContent = benefits[index];
-    }, 10000);
-
-    function openOrderPanel() {
-      alert('پنل سفارش در آینده متصل خواهد شد.');
+    function showPanel(id) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('show'));
+      document.getElementById(id).classList.add('show');
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+    function scrollToPanel(id) {
+      showPanel(id);
     }
   </script>
 </body>
