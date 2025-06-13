@@ -135,30 +135,32 @@
   <footer>بسته‌بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی می‌باشد</footer>
 
   <script>
-    const benefits = [
-      "چای میوه خوش‌نوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
-      "ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
-      "تقویت‌کننده‌ی انرژی روزانه با طعمی ماندگار.",
-      "لوکس‌ترین تجربه‌ی چای میوه‌های با اصالت ایرانی.",
-      "فاقد افزودنی‌های شیمیایی و نگهدارنده، صد درصد طبیعی.",
-      "بهبود کیفیت خواب با نوشیدن قبل از خواب شبانه.",
-      "کمک به تنظیم فشار خون با مواد مغذی طبیعی.",
-      "پاکسازی کلیه‌ها با ترکیبات طبیعی میوه‌ها."
-    ];
+    window.onload = function () {
+      const benefits = [
+        "چای میوه خوش‌نوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
+        "ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
+        "تقویت‌کننده‌ی انرژی روزانه با طعمی ماندگار.",
+        "لوکس‌ترین تجربه‌ی چای میوه‌های با اصالت ایرانی.",
+        "فاقد افزودنی‌های شیمیایی و نگهدارنده، صد درصد طبیعی.",
+        "بهبود کیفیت خواب با نوشیدن قبل از خواب شبانه.",
+        "کمک به تنظیم فشار خون با مواد مغذی طبیعی.",
+        "پاکسازی کلیه‌ها با ترکیبات طبیعی میوه‌ها."
+      ];
 
-    let current = 0;
-    const box = document.getElementById("benefitsBox");
+      let current = 0;
+      const box = document.getElementById("benefitsBox");
 function showBenefit() {
-      box.style.opacity = 0;
-      setTimeout(() => {
-        box.innerText = benefits[current];
-        box.style.opacity = 1;
-        current = (current + 1) % benefits.length;
-      }, 500);
-    }
+        box.style.opacity = 0;
+        setTimeout(() => {
+          box.innerText = benefits[current];
+          box.style.opacity = 1;
+          current = (current + 1) % benefits.length;
+        }, 500);
+      }
 
-    setInterval(showBenefit, 10000);
-    showBenefit();
+      setInterval(showBenefit, 10000);
+      showBenefit();
+    };
 
     function calculateTotal() {
       const count = parseInt(document.getElementById("count").value) || 0;
