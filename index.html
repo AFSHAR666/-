@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -19,12 +18,21 @@
       padding: 2rem;
       text-align: center;
     }
-    header h1 {
-      font-size: 2.5rem;
-      margin: 0;
+    @keyframes shine {
+      0% { box-shadow: 0 0 10px gold; }
+      50% { box-shadow: 0 0 30px gold; }
+      100% { box-shadow: 0 0 10px gold; }
     }
-    header p {
-      font-size: 1.2rem;
+    .golden-title {
+      font-size: 45px;
+      color: white;
+      font-weight: 900;
+      border: 4px solid gold;
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      border-radius: 1rem;
+      text-shadow: 0 0 10px gold;
+      animation: shine 2s infinite;
     }
     .container {
       padding: 2rem;
@@ -75,7 +83,7 @@
 <body>
 
   <header>
-    <p style="font-size: 45px; color: #007b80; font-weight: 900;">چای میوه خوش نوش</p>
+    <p class="golden-title">چای میوه خوش نوش</p>
     <p> طعمی اصیل از دل طبیعت...</p>
   </header>
 
@@ -102,21 +110,21 @@
 
     <section class="section">
       <p style="font-size: 30px; color: Teal; font-weight: 900;">درباره ما</p>
-      <p>چای خوش نوش حاصل عشق ما به طبیعت، سلامتی و طعم‌ ناب طبیعت است. ما با انتخاب بهترین میوه‌ها ازبهترین باغ‌های منحصربه‌ فرد و دلنشین فراهم کرده‌ایم که هم سلامت شما را تأمین کند و هم بتواند جایگزینی کاملا مناسب برای چای سیاه باشد.</p>
+      <p>چای خوش نوش حاصل عشق ما به طبیعت، سلامتی و طعم‌ ناب طبیعت است. ما با انتخاب بهترین میوه‌ها از بهترین باغ‌های منحصربه‌فرد و دلنشین فراهم کرده‌ایم که هم سلامت شما را تأمین کند و هم بتواند جایگزینی کاملا مناسب برای چای سیاه باشد.</p>
     </section>
 
     <section class="section">
       <p style="font-size: 30px; color: Teal; font-weight: 900;">ارتباط با ما</p>
-      <p>جهت سفارش تلفنی  - پیگیری سفارش و یا احضار نظر با ما در ارتباط باشید:</p>
-      <p>شماره تماس:09398234644</p>
-      <p>شماره تماس:09991697499<p>
-      <p>ایدی تلگرام:@ATLAS515</p>
+      <p>جهت سفارش تلفنی - پیگیری سفارش و یا احضار نظر با ما در ارتباط باشید:</p>
+      <p>شماره تماس: ۰۹۳۹۸۲۳۴۶۴۴</p>
+      <p>شماره تماس: ۰۹۹۹۱۶۹۷۴۹۹</p>
+      <p>آیدی تلگرام: @ATLAS515</p>
     </section>
 
   </div>
 
   <footer>
-   بسته‌ بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی میباشد
+    بسته‌ بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی می‌باشد
   </footer>
 
   <script>
@@ -124,7 +132,7 @@
       "چای میوه خوشنوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
       "ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
       "فاقد کافئین، مناسب برای تمام سنین و ساعات روز.",
-      "کمک به بهبود سیستم گوارش و آرامش اعصاب.",
+"کمک به بهبود سیستم گوارش و آرامش اعصاب.",
       "تقویت‌کننده‌ی انرژی روزانه با طعمی ماندگار.",
       "لوکس‌ترین تجربه‌ی چای میوه‌ای با اصالت ایرانی.",
       "فاقد افزودنی‌های شیمیایی و نگهدارنده، ۱۰۰٪ طبیعی.",
@@ -147,7 +155,7 @@
     function calculateTotal() {
       const count = document.getElementById("count").value;
       const total = count * 95000;
-      document.getElementById("totalPrice").innerText = `قیمت کل: ${total.toLocaleString()} تومان`;
+      document.getElementById("totalPrice").innerText = قیمت کل: ${total.toLocaleString()} تومان;
     }
   </script>
 </body>
