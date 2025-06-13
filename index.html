@@ -84,7 +84,7 @@
 
   <header>
     <p class="golden-title">چای میوه خوش نوش</p>
-    <p style="font-size: 30px; color: white; font-weight: 900;">طعمی اصیل از دل طبیعت...</p>
+    <p> طعمی اصیل از دل طبیعت...</p>
   </header>
 
   <div class="container">
@@ -128,36 +128,40 @@
   </footer>
 
   <script>
-    const benefits = [
-      "چای میوه خوشنوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
-      "ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
-      "فاقد کافئین، مناسب برای تمام سنین و ساعات روز.",
-"کمک به بهبود سیستم گوارش و آرامش اعصاب.",
-      "تقویت‌کننده‌ی انرژی روزانه با طعمی ماندگار.",
-      "لوکس‌ترین تجربه‌ی چای میوه‌ای با اصالت ایرانی.",
-      "فاقد افزودنی‌های شیمیایی و نگهدارنده، ۱۰۰٪ طبیعی.",
-      "بهبود کیفیت خواب با نوشیدن قبل از خواب شبانه."
-    ];
+    window.onload = function () {
+      const benefits = [
+        "چای میوه خوشنوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
+        "ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
+"فاقد کافئین، مناسب برای تمام سنین و ساعات روز.",
+        "کمک به بهبود سیستم گوارش و آرامش اعصاب.",
+        "تقویت‌کننده‌ی انرژی روزانه با طعمی ماندگار.",
+        "لوکس‌ترین تجربه‌ی چای میوه‌ای با اصالت ایرانی.",
+        "فاقد افزودنی‌های شیمیایی و نگهدارنده، ۱۰۰٪ طبیعی.",
+        "بهبود کیفیت خواب با نوشیدن قبل از خواب شبانه."
+      ];
 
-    let current = 0;
-    const slideBox = document.getElementById("slides");
+      let current = 0;
+      const slideBox = document.getElementById("slides");
 
-    function showSlide() {
-      slideBox.style.opacity = 0;
-      setTimeout(() => {
-        slideBox.innerText = benefits[current];
-        slideBox.style.opacity = 1;
-        current = (current + 1) % benefits.length;
-      }, 500);
-    }
-    showSlide();
-    setInterval(showSlide, 10000);
+      function showSlide() {
+        slideBox.style.opacity = 0;
+        setTimeout(() => {
+          slideBox.innerText = benefits[current];
+          slideBox.style.opacity = 1;
+          current = (current + 1) % benefits.length;
+        }, 500);
+      }
 
-    function calculateTotal() {
-      const count = document.getElementById("count").value;
-      const total = count * 95000;
-      document.getElementById("totalPrice").innerText = قیمت کل: ${total.toLocaleString()} تومان;
-    }
+      showSlide();
+      setInterval(showSlide, 10000);
+
+      window.calculateTotal = function () {
+        const count = document.getElementById("count").value;
+        const total = count * 95000;
+        document.getElementById("totalPrice").innerText = قیمت کل: ${total.toLocaleString()} تومان;
+      };
+    };
   </script>
+
 </body>
 </html>
