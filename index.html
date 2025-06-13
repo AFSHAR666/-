@@ -12,11 +12,13 @@
       color: #333;
       line-height: 1.6;
     }
+
     header {
       background-color: #8dc123;
       text-align: center;
       padding: 2rem;
     }
+
     header p.main-title {
       font-size: 45px;
       font-weight: 900;
@@ -27,31 +29,53 @@
       border-radius: 1rem;
       text-shadow: 1px 1px 3px #00000055;
     }
+
     header p.subtitle {
       font-size: 1.2rem;
       color: white;
     }
+
     .container {
       padding: 2rem;
     }
+
     .section {
       background: white;
       margin: 2rem 0;
-      padding: 2rem;
+      line-height: 2rem;
       border-radius: 1.5rem;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      padding: 1.5rem;
     }
+
+    .benefit-slide {
+      font-size: 1.3rem;
+      color: #333;
+      transition: opacity 1s ease-in-out;
+      min-height: 3.5rem;
+      font-weight: bold;
+      text-align: right;
+      margin-top: 1rem;
+      background-color: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      opacity: 1;
+      padding: 1rem;
+    }
+
     form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
+
     input {
       padding: 1rem;
       border: 1px solid #ccc;
       border-radius: 1rem;
       font-size: 1rem;
     }
+
     button {
       background-color: #43a047;
       color: white;
@@ -61,52 +85,34 @@
       font-size: 1.1rem;
       cursor: pointer;
     }
+
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 1.4rem;
       background: #eee;
     }
-    h2 {
-      color: #1b5e20;
-    }
-    .benefit-slide {
-      font-size: 1.3rem;
-      color: #333;
-      transition: opacity 1s ease-in-out;
-      min-height: 3.5rem;
-      font-weight: bold;
-      text-align: right;
-      padding: 1rem;
-      background-color: #ffffff;
-      border-radius: 1rem;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      opacity: 1;
-    }
   </style>
 </head>
 <body>
-
   <header>
     <p class="main-title">چای میوه خوش نوش</p>
     <p class="subtitle">طعمی اصیل از دل طبیعت...</p>
   </header>
 
   <div class="container">
-
     <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">فواید چای میوه</p>
+      <h2>فواید چای میوه</h2>
       <div id="benefitsBox" class="benefit-slide">در حال بارگذاری فواید...</div>
     </section>
 
     <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">فرم سفارش</p>
-      <form>
+      <h2>فرم سفارش</h2>
+      <form oninput="calculateTotal()">
         <input type="text" placeholder="نام و نام خانوادگی" required />
         <input type="text" placeholder="شماره تماس" required />
         <input type="text" placeholder="شهر و آدرس دقیق" required />
-        <input type="text" placeholder="کد پستی" required />
-        <input type="number" id="count" placeholder="تعداد بسته (هر بسته ۹۵ هزار تومان)" min="1" required oninput="calculateTotal()" />
+        <input type="number" id="count" placeholder="تعداد بسته (هر بسته ۹۵ هزار تومان)" min="1" required />
         <div>وزن هر بسته: ۲۵۰ گرم</div>
         <div id="totalPrice">قیمت کل: ۰ تومان</div>
         <button type="submit">ثبت سفارش</button>
@@ -114,59 +120,51 @@
     </section>
 
     <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">درباره ما</p>
-      <p>چای خوش نوش حاصل عشق ما به طبیعت، سلامتی و طعم‌ ناب طبیعت است. ما با انتخاب بهترین میوه‌ها از بهترین باغ‌های منحصربه‌ فرد و دلنشین فراهم کرده‌ایم که هم سلامت شما را تأمین کند و هم بتواند جایگزینی کاملاً مناسب برای چای سیاه باشد.</p>
+      <h2>درباره ما</h2>
+      <p>چای خوش نوش عشق ما به طبیعت، سلامتی و طعم‌ ناب میوه‌هاست. با استفاده از میوه‌های برگزیده از بهترین باغ‌های ایران، تجربه‌ای لوکس و سالم را برای شما به ارمغان می‌آوریم.</p>
     </section>
 
     <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">ارتباط با ما</p>
-      <p>جهت سفارش تلفنی، پیگیری سفارش و یا اظهارنظر با ما در ارتباط باشید:</p>
+      <h2>ارتباط با ما</h2>
       <p>شماره تماس: ۰۹۳۹۸۲۳۴۶۴۴</p>
-      <p>شماره تماس: ۰۹۹۹۱۶۹۷۴۹۹</p>
+      <p>شماره تماس: ۰۹۹۹۱۶۶۹۷۴۹۹</p>
       <p>آیدی تلگرام: @ATLAS515</p>
     </section>
-
   </div>
 
-  <footer>
-    بسته‌بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی می‌باشد
-  </footer>
+  <footer>بسته‌بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی می‌باشد</footer>
 
   <script>
     const benefits = [
-      "چای میوه خوشنوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
-"ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
-      "فاقد کافئین، مناسب برای تمام سنین و ساعات روز.",
-      "کمک به بهبود سیستم گوارش و آرامش اعصاب.",
+      "چای میوه خوش‌نوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
+      "ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
       "تقویت‌کننده‌ی انرژی روزانه با طعمی ماندگار.",
-      "لوکس‌ترین تجربه‌ی چای میوه‌ای با اصالت ایرانی.",
-      "فاقد افزودنی‌های شیمیایی و نگهدارنده، ۱۰۰٪ طبیعی.",
+      "لوکس‌ترین تجربه‌ی چای میوه‌های با اصالت ایرانی.",
+      "فاقد افزودنی‌های شیمیایی و نگهدارنده، صد درصد طبیعی.",
       "بهبود کیفیت خواب با نوشیدن قبل از خواب شبانه.",
       "کمک به تنظیم فشار خون با مواد مغذی طبیعی.",
-      "پاکسازی کبد و کلیه‌ها با ترکیبات طبیعی میوه‌ای."
+      "پاکسازی کلیه‌ها با ترکیبات طبیعی میوه‌ها."
     ];
 
     let current = 0;
-    const benefitBox = document.getElementById("benefitsBox");
-
-    function showBenefit() {
-      benefitBox.style.opacity = 0;
+    const box = document.getElementById("benefitsBox");
+function showBenefit() {
+      box.style.opacity = 0;
       setTimeout(() => {
-        benefitBox.innerText = benefits[current];
-        benefitBox.style.opacity = 1;
+        box.innerText = benefits[current];
+        box.style.opacity = 1;
         current = (current + 1) % benefits.length;
-      }, 600);
+      }, 500);
     }
 
-    showBenefit(); 
-    setInterval(showBenefit, 10000); 
+    setInterval(showBenefit, 10000);
+    showBenefit();
 
     function calculateTotal() {
-      const count = document.getElementById("count").value;
+      const count = parseInt(document.getElementById("count").value) || 0;
       const total = count * 95000;
       document.getElementById("totalPrice").innerText = قیمت کل: ${total.toLocaleString()} تومان;
     }
   </script>
-
 </body>
 </html>
