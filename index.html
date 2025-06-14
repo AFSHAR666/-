@@ -65,108 +65,104 @@
     .benefits p {
       font-size: 1.2rem;
       color: #4e342e;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.5s ease-in-out;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <p style="font-size: 45px; color: #D4AF37; font-weight: 900;">چای میوه خوش نوش</p>
-    <p>چای خوش نوش جرعه‌ای از اصالت، آرامش و طعم ناب طبیعت...</p>
-  </header>
+<header>
+  <p style="font-size: 45px; color: #D4AF37; font-weight: 900;">چای میوه خوش نوش</p>
+  <p>چای خوش نوش جرعه‌ای از اصالت، آرامش و طعم ناب طبیعت...</p>
+</header>
 
-  <div class="container">
+<div class="container">
 
-    <!-- کادر فواید چای سیب -->
-    <section class="benefits">
-      <h3 style="color: #2e7d32;">فواید شگفت‌انگیز چای سیب</h3>
-      <p id="benefitText">چای سیب سرشار از پلی‌فنول‌هایی است که روند پیری سلول‌ها را کند می‌کنند.</p>
-    </section>
+  <!-- کادر فواید چای سیب -->
+  <section class="benefits">
+    <h3 style="color: #2e7d32;">فواید شگفت‌انگیز چای سیب</h3>
+    <p id="benefitText">در حال بارگذاری فواید...</p>
+  </section>
 
-    <!-- فرم سفارش -->
-    <section class="section">
-      <h2 style="color: teal;">فرم سفارش</h2>
-      <form onsubmit="submitOrder(); return false;">
-        <input id="name" type="text" placeholder="نام و نام خانوادگی" required />
-        <input id="phone" type="text" placeholder="شماره تماس" required />
-        <input id="address" type="text" placeholder="شهر و آدرس دقیق" required />
-        <input id="post" type="text" placeholder="کد پستی" required />
-        <input id="count" type="number" placeholder="تعداد بسته (هر بسته ۹۵ هزار تومان)" min="1" required oninput="calculateTotal()" />
-        <div>وزن هر بسته: ۲۵۰ گرم</div>
-        <div id="totalPrice">قیمت کل: ۰ تومان</div>
-        <button type="submit">ثبت سفارش</button>
-      </form>
-    </section>
+  <!-- فرم سفارش -->
+  <section class="section">
+    <h2 style="color: teal;">فرم سفارش</h2>
+    <form onsubmit="submitOrder(); return false;">
+      <input id="name" type="text" placeholder="نام و نام خانوادگی" required />
+      <input id="phone" type="text" placeholder="شماره تماس" required />
+      <input id="address" type="text" placeholder="شهر و آدرس دقیق" required />
+      <input id="post" type="text" placeholder="کد پستی" required />
+      <input id="count" type="number" placeholder="تعداد بسته (هر بسته ۹۵ هزار تومان)" min="1" required oninput="calculateTotal()" />
+      <div>وزن هر بسته: ۲۵۰ گرم</div>
+      <div id="totalPrice">قیمت کل: ۰ تومان</div>
+      <button type="submit">ثبت سفارش</button>
+    </form>
+  </section>
 
-    <!-- کادر درباره ما -->
-    <section class="about">
-      <h3>درباره ما</h3>
-      <p>چای میوه خوش‌نوش با بهره‌گیری از بهترین میوه‌های خشک و بسته‌بندی کاملاً بهداشتی، تجربه‌ای متفاوت از نوشیدن چای را برای شما به ارمغان می‌آورد.</p>
-    </section>
+  <!-- کادر درباره ما -->
+  <section class="about">
+    <h3>درباره ما</h3>
+    <p>چای میوه خوش‌نوش با بهره‌گیری از بهترین میوه‌های خشک و بسته‌بندی کاملاً بهداشتی، تجربه‌ای متفاوت از نوشیدن چای را برای شما به ارمغان می‌آورد.</p>
+  </section>
 
-    <!-- کادر ارتباط با ما -->
-    <section class="contact">
-      <h3>ارتباط با ما</h3>
-      <p>شماره تماس: ۰۹۳۹۸۲۳۴۶۴۴</p>
-      <p>آیدی تلگرام: @ATLAS515</p>
-    </section>
+  <!-- کادر ارتباط با ما -->
+  <section class="contact">
+    <h3>ارتباط با ما</h3>
+    <p>شماره تماس: ۰۹۳۹۸۲۳۴۶۴۴</p>
+    <p>آیدی تلگرام: @ATLAS515</p>
+  </section>
 
-  </div>
+</div>
 
-  <footer>
-    بسته‌بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی می‌باشد.
-  </footer>
+<footer>
+  بسته‌بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی می‌باشد.
+</footer>
 
-  <script>
-    function calculateTotal() {
-      const count = parseInt(document.getElementById("count").value || "0");
-      const total = count * 95000;
-      document.getElementById("totalPrice").innerText = قیمت کل: ${total.toLocaleString()} تومان;
-    }
+<script>
+  // محاسبه قیمت
+  function calculateTotal() {
+    const count = parseInt(document.getElementById("count").value || "0");
+    const total = count * 95000;
+    document.getElementById("totalPrice").innerText = قیمت کل: ${total.toLocaleString()} تومان;
+  }
 
-    function submitOrder() {
-      const order = {
-        name: document.getElementById("name").value,
-        phone: document.getElementById("phone").value,
-        address: document.getElementById("address").value,
-        post: document.getElementById("post").value,
-        count: document.getElementById("count").value,
-        status: "در حال پرداخت"
-      };
-      localStorage.setItem("lastOrder", JSON.stringify(order));
-      window.location.href = "success.html";
-    }
-// اسلاید جملات فواید چای سیب
-    document.addEventListener("DOMContentLoaded", function () {
-      const benefits = [
-        "چای سیب سرشار از پلی‌فنول‌هایی است که روند پیری سلول‌ها را کند می‌کنند.",
-        "ترکیبات آنتی‌اکسیدانی چای سیب، از DNA سلول‌ها در برابر آسیب رادیکال‌های آزاد محافظت می‌کنند.",
-        "مصرف منظم چای سیب می‌تواند باعث تنظیم قند خون و بهبود عملکرد پانکراس شود.",
-        "فیبرهای طبیعی موجود در چای سیب به پاک‌سازی دستگاه گوارش و تقویت باکتری‌های مفید روده کمک می‌کنند.",
-        "اسید مالیک موجود در سیب به سم‌زدایی کبد و بهبود متابولیسم بدن کمک می‌کند.",
-        "نوشیدن چای سیب می‌تواند استرس را کاهش داده و کیفیت خواب را بهبود بخشد.",
-        "چای سیب منبع طبیعی ویتامین C است و به تقویت سیستم ایمنی بدن کمک می‌کند.",
-        "ترکیب طبع معتدل سیب با گرمی چای، باعث تعادل مزاجی و آرامش اعصاب می‌شود.",
-        "چای سیب به تنظیم فشار خون کمک کرده و برای سلامت قلب مفید است.",
-        "مصرف چای سیب پس از غذا باعث تسهیل در هضم و جذب بهتر مواد مغذی می‌شود."
-      ];
-      let current = 0;
-      const textEl = document.getElementById("benefitText");
+  // ثبت سفارش
+  function submitOrder() {
+    const order = {
+      name: document.getElementById("name").value,
+      phone: document.getElementById("phone").value,
+      address: document.getElementById("address").value,
+      post: document.getElementById("post").value,
+      count: document.getElementById("count").value,
+      status: "در حال پرداخت"
+    };
+    localStorage.setItem("lastOrder", JSON.stringify(order));
+    window.location.href = "success.html";
+  }
+// اسلایدر فواید چای سیب
+  const benefits = [
+    "چای سیب سرشار از پلی‌فنول‌هایی است که روند پیری سلول‌ها را کند می‌کنند.",
+    "ترکیبات آنتی‌اکسیدانی چای سیب، از DNA سلول‌ها در برابر آسیب رادیکال‌های آزاد محافظت می‌کنند.",
+    "مصرف منظم چای سیب می‌تواند باعث تنظیم قند خون و بهبود عملکرد پانکراس شود.",
+    "فیبرهای طبیعی موجود در چای سیب به پاک‌سازی دستگاه گوارش و تقویت باکتری‌های مفید روده کمک می‌کنند.",
+    "اسید مالیک موجود در سیب به سم‌زدایی کبد و بهبود متابولیسم بدن کمک می‌کند.",
+    "نوشیدن چای سیب می‌تواند استرس را کاهش داده و کیفیت خواب را بهبود بخشد.",
+    "چای سیب منبع طبیعی ویتامین C است و به تقویت سیستم ایمنی بدن کمک می‌کند.",
+    "ترکیب طبع معتدل سیب با گرمی چای، باعث تعادل مزاجی و آرامش اعصاب می‌شود.",
+    "چای سیب به تنظیم فشار خون کمک کرده و برای سلامت قلب مفید است.",
+    "مصرف چای سیب پس از غذا باعث تسهیل در هضم و جذب بهتر مواد مغذی می‌شود."
+  ];
 
-      function showNextBenefit() {
-        textEl.style.opacity = 0;
-        setTimeout(() => {
-          textEl.innerText = benefits[current];
-          textEl.style.opacity = 1;
-          current = (current + 1) % benefits.length;
-        }, 500);
-      }
-
-      showNextBenefit();
-      setInterval(showNextBenefit, 10000);
-    });
-  </script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const textElement = document.getElementById("benefitText");
+    let i = 0;
+    textElement.textContent = benefits[i];
+    setInterval(() => {
+      i = (i + 1) % benefits.length;
+      textElement.textContent = benefits[i];
+    }, 10000);
+  });
+</script>
 
 </body>
 </html>
