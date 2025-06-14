@@ -2,68 +2,68 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>پنل مدیریت | چای خوش نوش</title>
+  <title>پنل مدیریت خوش‌نوش</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      font-family: sahel, sans-serif;
-      background: #fefefe;
-      padding: 2rem;
+      margin: 0;
+      font-family: Sahel, sans-serif;
+      background: linear-gradient(to bottom, #fefcea, #e0c69d);
       color: #333;
+      padding: ۲۰px;
     }
-    h1 {
+    header {
+      background-color: #884531;
+      color: white;
+      padding: ۱۲px;
       text-align: center;
-      color: #1b5e20;
+      font-size: ۲۰px;
+      border-radius: ۸px;
     }
-    .order {
-      border: 1px solid #ccc;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 1rem;
-      background: #f9f9f9;
+    .order-box {
+      background: white;
+      padding: ۲۰px;
+      border-radius: ۱۲px;
+      box-shadow: ۰ ۴px ۸px rgba(0,0,0,0.1);
+      margin-top: ۲۰px;
+      max-width: ۶۰۰px;
+      margin: ۲۰px auto;
+    }
+    .order-box p {
+      margin: ۸px ۰;
     }
     .status {
       font-weight: bold;
-      color: #d32f2f;
+      color: red;
     }
-    .status.confirmed {
+    .status.complete {
       color: green;
     }
   </style>
 </head>
 <body>
 
-  <h1>سفارش‌های ثبت‌شده</h1>
-  <div id="orders"></div>
+<header>پنل مدیریت سفارش‌ها</header>
 
-  <script>
-    function showOrders() {
-      const orders = JSON.parse(localStorage.getItem("orders") || "[]");
-      const container = document.getElementById("orders");
-      if (orders.length === 0) {
-        container.innerHTML = "<p>هیچ سفارشی ثبت نشده است.</p>";
-        return;
-      }
+<div class="order-box">
+  <p><strong>نام:</strong> محمد افشار</p>
+  <p><strong>شماره تماس:</strong> ۰۹۱۲۱۲۳۴۵۶۷</p>
+  <p><strong>آدرس:</strong> تهران، خیابان ولیعصر، پلاک ۱۱۱</p>
+  <p><strong>کد پستی:</strong> ۱۱۴۵۶۷۸۹۹۱</p>
+  <p><strong>تعداد بسته:</strong> ۲</p>
+  <p><strong>قیمت کل:</strong> ۱۹۰٬۰۰۰ تومان</p>
+  <p class="status">وضعیت: تکمیل نشده</p>
+</div>
 
-      orders.forEach(order => {
-        const div = document.createElement("div");
-        div.className = "order";
-        div.innerHTML = 
-          <p><strong>نام:</strong> ${order.name}</p>
-          <p><strong>شماره تماس:</strong> ${order.phone}</p>
-          <p><strong>آدرس:</strong> ${order.address}</p>
-          <p><strong>کد پستی:</strong> ${order.postal}</p>
-          <p><strong>تعداد بسته:</strong> ${order.count}</p>
-          <p><strong>مبلغ کل:</strong> ${Number(order.count * 95000).toLocaleString()} تومان</p>
-          <p class="status ${order.status === 'تایید شده' ? 'confirmed' : ''}">وضعیت: ${order.status}</p>
-        ;
-        container.appendChild(div);
-      });
-    }
-
-    // اجرای نمایش سفارش‌ها بلافاصله هنگام بارگذاری صفحه
-    showOrders();
-  </script>
+<div class="order-box">
+  <p><strong>نام:</strong> نگار قاسمی</p>
+  <p><strong>شماره تماس:</strong> ۰۹۳۵۶۷۸۹۰۱۲</p>
+  <p><strong>آدرس:</strong> مشهد، بلوار سجاد</p>
+  <p><strong>کد پستی:</strong> ۹۱۸۹۸۷۶۵۴۳</p>
+  <p><strong>تعداد بسته:</strong> ۳</p>
+  <p><strong>قیمت کل:</strong> ۲۸۵٬۰۰۰ تومان</p>
+  <p class="status complete">وضعیت: تایید شده ✅</p>
+</div>
 
 </body>
 </html>
