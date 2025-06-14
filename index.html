@@ -7,162 +7,130 @@
   <style>
     body {
       margin: 0;
-      font-family: sahel, sans-serif;
-      background: linear-gradient(to bottom, #fefcea, #f1daab);
+      font-family: Sahel, sans-serif;
+      background: linear-gradient(to bottom, #fdf6ec, #f1d8b0);
       color: #333;
-      line-height: 1.6;
     }
     header {
-      background-color: #1b5e20;
+      background-color: #b84e2f;
       color: white;
-      padding: 2rem;
+      padding: ۱۶px;
       text-align: center;
+      font-size: ۲۴px;
+      font-weight: bold;
     }
-    .container {
-      padding: 2rem;
+    .slogan {
+      text-align: center;
+      margin: ۲۰px;
+      font-size: ۱۸px;
+      background: rgba(255,255,255,0.8);
+      padding: ۱۲px;
+      border-radius: ۱۲px;
+      font-weight: bold;
     }
-    .section {
+    .form-box {
       background: white;
-      margin: 2rem 0;
-      padding: 2rem;
-      border-radius: 1.5rem;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-width: ۴۰۰px;
+      margin: auto;
+      padding: ۲۰px;
+      border-radius: ۱۲px;
+      box-shadow: ۰ ۴px ۸px rgba(0,0,0,0.2);
     }
-    .slide {
-      font-size: 1.2rem;
-      transition: opacity 1s ease-in-out;
-      min-height: 3rem;
+    .form-box input {
+      width: ۱۰۰%;
+      padding: ۱۰px;
+      margin-top: ۸px;
+      margin-bottom: ۱۶px;
+      border: ۱px solid #ccc;
+      border-radius: ۸px;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    input {
-      padding: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 1rem;
-      font-size: 1rem;
-    }
-    button {
-      background-color: #43a047;
+    .form-box button {
+      background-color: #b84e2f;
       color: white;
-      padding: 1rem;
+      padding: ۱۰px;
       border: none;
-      border-radius: 1rem;
-      font-size: 1.1rem;
+      border-radius: ۸px;
+      width: ۱۰۰%;
+      font-size: ۱۶px;
       cursor: pointer;
     }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 1.4rem;
-      background: #eee;
+    .form-box button:hover {
+      background-color: #9c3f28;
+    }
+    .footer-buttons {
+      display: flex;
+      justify-content: center;
+      gap: ۲۰px;
+      margin-top: ۳۰px;
+    }
+    .footer-buttons button {
+      background: #ddd;
+      border: none;
+      padding: ۸px ۱۶px;
+      border-radius: ۸px;
+      cursor: pointer;
+    }
+    .footer-buttons button:hover {
+      background: #bbb;
+    }
+    .panel {
+      display: none;
+      margin-top: ۱۰px;
+      background: #fff8e1;
+      padding: ۱۵px;
+      border-radius: ۸px;
+      max-width: ۵۰۰px;
+      margin: ۱۰px auto;
+    }
+    .weight-info {
+      font-size: ۱۲px;
+      color: #777;
+      margin-bottom: ۱۰px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <p style="font-size: 45px; color: #D4AF37; font-weight: 900;">چای میوه خوش نوش</p>
-    <p>طعمی اصیل از دل طبیعت...</p>
-  </header>
+<header>چای میوه خوش نوش</header>
 
-  <div class="container">
+<div class="slogan">طبیعت را در فنجان خود تجربه کنید 🍃</div>
 
-    <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">فواید چای میوه </p>
-      <div id="slides" class="slide"></div>
-    </section>
+<div class="form-box">
+  <div class="weight-info">وزن هر بسته: ۲۵۰ گرم</div>
+  <input type="text" id="name" placeholder="نام و نام خانوادگی">
+  <input type="tel" id="phone" placeholder="شماره تماس">
+  <input type="text" id="address" placeholder="شهر و آدرس کامل">
+  <input type="text" id="postal" placeholder="کد پستی">
+  <input type="number" id="count" placeholder="تعداد بسته" oninput="calculatePrice()">
+  <div id="price">قیمت کل: ۰ تومان</div>
+  <button onclick="submitOrder()">ثبت سفارش</button>
+</div>
 
-    <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">فرم سفارش</p>
-      <form id="orderForm">
-        <input type="text" id="name" placeholder="نام و نام خانوادگی" required />
-        <input type="text" id="phone" placeholder="شماره تماس" required />
-        <input type="text" id="address" placeholder="شهر و آدرس دقیق" required />
-        <input type="text" id="postal" placeholder="کد پستی" required />
-        <input type="number" id="count" placeholder="تعداد بسته (هر بسته ۹۵ هزار تومان)" min="1" required oninput="calculateTotal()" />
-        <div>وزن هر بسته: ۲۵۰ گرم</div>
-        <div id="totalPrice">قیمت کل: ۰ تومان</div>
-        <button type="submit">ثبت سفارش</button>
-      </form>
-    </section>
+<div class="footer-buttons">
+  <button onclick="togglePanel('about')">درباره ما</button>
+  <button onclick="togglePanel('contact')">ارتباط با ما</button>
+</div>
 
-    <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">درباره ما</p>
-      <p>چای خوش نوش حاصل عشق ما به طبیعت، سلامتی و طعم‌ ناب طبیعت است. ما با انتخاب بهترین میوه‌ها از بهترین باغ‌های منحصربه‌فرد و دلنشین فراهم کرده‌ایم که هم سلامت شما را تأمین کند و هم بتواند جایگزینی کاملا مناسب برای چای سیاه باشد.</p>
-    </section>
+<div class="panel" id="about">چای خوش‌نوش با ترکیبی از میوه‌های طبیعی و فرآیند بسته‌بندی کاملاً بهداشتی، لحظاتی خوش و سالم برای شما رقم می‌زند.</div>
+<div class="panel" id="contact">شماره تماس: ۰۹۳۹۸۲۳۴۶۴۴<br>آیدی تلگرام: @ATLAS515</div>
 
-    <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">ارتباط با ما</p>
-      <p>جهت سفارش تلفنی - پیگیری سفارش و یا احضار نظر با ما در ارتباط باشید:</p>
-      <p>شماره تماس: ۰۹۳۹۸۲۳۴۶۴۴</p>
-      <p>شماره تماس: ۰۹۹۹۱۶۹۷۴۹۹</p>
-      <p>آیدی تلگرام: @ATLAS515</p>
-    </section>
+<script>
+  function togglePanel(id) {
+    document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+  }
 
-  </div>
+  function calculatePrice() {
+    const count = parseInt(document.getElementById('count').value) || 0;
+    const price = count * 95000;
+    document.getElementById('price').innerText = قیمت کل: ${price.toLocaleString()} تومان;
+  }
 
-  <footer>
-    بسته‌ بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی می‌باشد
-  </footer>
-
-  <script>
-    // فواید چای
-    const benefits = [
-      "چای میوه خوشنوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
-      "ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
-      "فاقد کافئین، مناسب برای تمام سنین و ساعات روز.",
-      "کمک به بهبود سیستم گوارش و آرامش اعصاب.",
-      "تقویت‌کننده‌ی انرژی روزانه با طعمی ماندگار.",
-      "لوکس‌ترین تجربه‌ی چای میوه‌ای با اصالت ایرانی.",
-      "فاقد افزودنی‌های شیمیایی و نگهدارنده، ۱۰۰٪ طبیعی.",
-      "بهبود کیفیت خواب با نوشیدن قبل از خواب شبانه."
-    ];
-    let current = 0;
-    const slideBox = document.getElementById("slides");
-function showSlide() {
-      slideBox.style.opacity = 0;
-      setTimeout(() => {
-        slideBox.innerText = benefits[current];
-        slideBox.style.opacity = 1;
-        current = (current + 1) % benefits.length;
-      }, 500);
-    }
-    showSlide();
-    setInterval(showSlide, 10000);
-
-    // محاسبه قیمت
-    function calculateTotal() {
-      const count = document.getElementById("count").value;
-      const total = count * 95000;
-      document.getElementById("totalPrice").innerText = قیمت کل: ${total.toLocaleString()} تومان;
-    }
-
-    // ذخیره و هدایت به زرین‌پال
-    document.getElementById("orderForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const data = {
-        name: document.getElementById("name").value,
-        phone: document.getElementById("phone").value,
-        address: document.getElementById("address").value,
-        postal: document.getElementById("postal").value,
-        count: document.getElementById("count").value,
-        status: "تکمیل نشده"
-      };
-
-      const orders = JSON.parse(localStorage.getItem("orders") || "[]");
-      orders.push(data);
-      localStorage.setItem("orders", JSON.stringify(orders));
-
-      const total = data.count * 95000;
-
-      // آدرس درگاه پرداخت زرین‌پال (MERCHANT-ID را بعداً جایگزین کن)
-      window.location.href = https://www.zarinpal.com/pg/StartPay/YOUR-MERCHANT-ID/ZarinGate?Amount=${total}&CallbackURL=success.html;
-    });
-  </script>
+  function submitOrder() {
+    // اینجا می‌تونی به درگاه یا admin.html متصل کنی
+    window.location.href = "success.html";
+  }
+</script>
 
 </body>
 </html>
