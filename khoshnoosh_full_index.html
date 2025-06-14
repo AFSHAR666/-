@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>چای میوه خوش نوش</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       margin: 0;
@@ -23,9 +22,6 @@
       font-size: 2.5rem;
       margin: 0;
     }
-    header p {
-      font-size: 1.2rem;
-    }
     .container {
       padding: 2rem;
     }
@@ -34,12 +30,7 @@
       margin: 2rem 0;
       padding: 2rem;
       border-radius: 1.5rem;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    }
-    .slide {
-      font-size: 1.2rem;
-      transition: opacity 1s ease-in-out;
-      min-height: 3rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
     form {
       display: flex;
@@ -67,87 +58,52 @@
       font-size: 1.4rem;
       background: #eee;
     }
-    h2 {
-      color: #1b5e20;
-    }
   </style>
 </head>
 <body>
-
   <header>
     <p style="font-size: 45px; color: #D4AF37; font-weight: 900;">چای میوه خوش نوش</p>
-    <p>چای خوش نوش جرعه ای از اصالت,ارامش و طعم ناب طبیعت...</p>
+    <p>چای خوش نوش جرعه‌ای از اصالت، آرامش و طعم ناب طبیعت...</p>
   </header>
 
   <div class="container">
-
     <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">فواید چای میوه </p>
-      <div id="slides" class="slide"></div>
-    </section>
-
-    <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">فرم سفارش</p>
-      <form>
-        <input type="text" placeholder="نام و نام خانوادگی" required />
-        <input type="text" placeholder="شماره تماس" required />
-        <input type="text" placeholder="شهر و آدرس دقیق" required />
-        <input type="text" placeholder="کد پستی" required />
-        <input type="number" id="count" placeholder="تعداد بسته (هر بسته ۹۵ هزار تومان)" min="1" required oninput="calculateTotal()" />
+      <h2 style="color: teal;">فرم سفارش</h2>
+      <form action="https://www.zarinpal.com/pg/StartPay/YOUR-MERCHANT-ID" method="GET" onsubmit="return preparePayment()">
+        <input id="name" type="text" placeholder="نام و نام خانوادگی" required />
+        <input id="phone" type="text" placeholder="شماره تماس" required />
+        <input id="address" type="text" placeholder="شهر و آدرس دقیق" required />
+        <input id="post" type="text" placeholder="کد پستی" required />
+        <input id="count" type="number" placeholder="تعداد بسته (هر بسته ۹۵ هزار تومان)" min="1" required oninput="calculateTotal()" />
         <div>وزن هر بسته: ۲۵۰ گرم</div>
         <div id="totalPrice">قیمت کل: ۰ تومان</div>
-        <button type="submit">ثبت سفارش</button>
+        <button type="submit">ثبت سفارش و پرداخت</button>
       </form>
     </section>
-
-    <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">درباره ما</p>
-      <p>چای خوش نوش حاصل عشق ما به طبیعت، سلامتی و طعم‌ ناب طبیعت است. ما با انتخاب بهترین میوه‌ها ازبهترین باغ‌های منحصربه‌ فرد و دلنشین فراهم کرده‌ایم که هم سلامت شما را تأمین کند و هم بتواند جایگزینی کاملا مناسب برای چای سیاه باشد.</p>
-    </section>
-
-    <section class="section">
-      <p style="font-size: 30px; color: Teal; font-weight: 900;">ارتباط با ما</p>
-      <p>جهت سفارش تلفنی  - پیگیری سفارش و یا احضار نظر با ما در ارتباط باشید:</p>
-      <p>شماره تماس:09398234644</p>
-      <p>شماره تماس:09991697499<p>
-      <p>ایدی تلگرام:@ATLAS515</p>
-    </section>
-
   </div>
 
   <footer>
-   بسته‌ بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی میباشد
+    بسته‌بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی می‌باشد.
   </footer>
 
   <script>
-    const benefits = [
-      "چای میوه خوشنوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
-      "ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
-      "فاقد کافئین، مناسب برای تمام سنین و ساعات روز.",
-      "کمک به بهبود سیستم گوارش و آرامش اعصاب.",
-      "تقویت‌کننده‌ی انرژی روزانه با طعمی ماندگار.",
-      "لوکس‌ترین تجربه‌ی چای میوه‌ای با اصالت ایرانی.",
-      "فاقد افزودنی‌های شیمیایی و نگهدارنده، ۱۰۰٪ طبیعی.",
-      "بهبود کیفیت خواب با نوشیدن قبل از خواب شبانه."
-    ];
-    let current = 0;
-    const slideBox = document.getElementById("slides");
-
-    function showSlide() {
-      slideBox.style.opacity = 0;
-      setTimeout(() => {
-        slideBox.innerText = benefits[current];
-        slideBox.style.opacity = 1;
-        current = (current + 1) % benefits.length;
-      }, 500);
-    }
-    showSlide();
-    setInterval(showSlide, 10000);
-
     function calculateTotal() {
-      const count = document.getElementById("count").value;
+      const count = parseInt(document.getElementById("count").value || "0");
       const total = count * 95000;
-      document.getElementById("totalPrice").innerText = `قیمت کل: ${total.toLocaleString()} تومان`;
+      document.getElementById("totalPrice").innerText = قیمت کل: ${total.toLocaleString()} تومان;
+    }
+
+    function preparePayment() {
+      const order = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
+        post: document.getElementById("post").value,
+        count: document.getElementById("count").value,
+        status: "در حال پرداخت"
+      };
+      localStorage.setItem("lastOrder", JSON.stringify(order));
+      return true;
     }
   </script>
 </body>
