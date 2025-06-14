@@ -29,57 +29,14 @@
     .status.confirmed {
       color: green;
     }
-    #login {
-      max-width: 400px;
-      margin: 5rem auto;
-      text-align: center;
-    }
-    input {
-      padding: 1rem;
-      width: 80%;
-      border-radius: 1rem;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-    button {
-      padding: 1rem 2rem;
-      background: #1b5e20;
-      color: white;
-      border: none;
-      border-radius: 1rem;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
 
-  <div id="login">
-    <h1>ورود به پنل مدیریت</h1>
-    <input type="text" id="password" placeholder="رمز عبور را وارد کنید">
-    <br>
-    <button onclick="checkPassword()">ورود</button>
-  </div>
-
-  <div id="panel" style="display:none">
-    <h1>سفارش‌های ثبت‌شده</h1>
-    <div id="orders"></div>
-  </div>
+  <h1>سفارش‌های ثبت‌شده</h1>
+  <div id="orders"></div>
 
   <script>
-    const adminPassword = "afshar";
-
-    function checkPassword() {
-      const entered = document.getElementById("password").value;
-      if (entered === adminPassword) {
-        document.getElementById("login").style.display = "none";
-        document.getElementById("panel").style.display = "block";
-        showOrders();
-      } else {
-        alert("رمز اشتباه است.");
-      }
-    }
-
     function showOrders() {
       const orders = JSON.parse(localStorage.getItem("orders") || "[]");
       const container = document.getElementById("orders");
@@ -103,6 +60,9 @@
         container.appendChild(div);
       });
     }
+
+    // اجرای نمایش سفارش‌ها بلافاصله هنگام بارگذاری صفحه
+    showOrders();
   </script>
 
 </body>
