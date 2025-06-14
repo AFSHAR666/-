@@ -1,1 +1,154 @@
 
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>چای میوه خوشنوش</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: sahel, sans-serif;
+      background: linear-gradient(to bottom, #fefcea, #f1daab);
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #8b0000;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2rem;
+    }
+    .container {
+      padding: 2rem;
+    }
+    .section {
+      background: white;
+      margin: 2rem 0;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .slide {
+      font-size: 1.2rem;
+      transition: opacity 1s ease-in-out;
+      min-height: 3rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 1rem;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #8b0000;
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 1rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background: #eee;
+    }
+    h2 {
+      color: #8b0000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>چای میوه خوشنوش</h1>
+    <p>لوکس‌ترین تجربه‌ی چای میوه‌ای با اصالت ایرانی</p>
+    <p>شماره تماس: ۰۹۳۹۸۲۳۴۶۴۴</p>
+  </header>
+
+  <div class="container">
+
+    <section class="section">
+      <h2>فواید چای میوه خوشنوش</h2>
+      <div id="slides" class="slide"></div>
+    </section>
+
+    <section class="section">
+      <h2>فرم سفارش</h2>
+      <form>
+        <input type="text" placeholder="نام و نام خانوادگی" required />
+        <input type="tel" placeholder="شماره تماس" required />
+        <input type="text" placeholder="شهر و آدرس دقیق" required />
+        <input type="text" placeholder="کد پستی" required />
+        <input type="number" id="count" placeholder="تعداد بسته (هر بسته ۹۵ هزار تومان)" min="1" required oninput="calculateTotal()" />
+        <div>وزن هر بسته: ۲۵۰ گرم</div>
+        <div id="totalPrice">قیمت کل: ۰ تومان</div>
+        <button type="submit">ثبت سفارش</button>
+      </form>
+    </section>
+
+    <section class="section">
+      <h2>درباره ما</h2>
+      <p>چای خوشنوش حاصل عشق ما به طبیعت، سلامت و طعم‌های ناب است. ما با انتخاب بهترین میوه‌ها از باغ‌های ایران، ترکیبی منحصربه‌فرد و دلنشین فراهم کرده‌ایم که هم سلامت شما را تأمین کند و هم حس لوکس بودن را در هر فنجان تداعی نماید.</p>
+    </section>
+
+    <section class="section">
+      <h2>ارتباط با ما</h2>
+      <p>جهت پیگیری سفارش، همکاری یا دریافت نمایندگی، با ما در تماس باشید:</p>
+      <p>شماره تماس: ۰۹۳۹۸۲۳۴۶۴۴</p>
+      <p>ایمیل: info@khoshnoosh.ir</p>
+    </section>
+
+  </div>
+
+  <footer>
+    بسته‌بندی با پاکت‌های زیپ‌دار کاملاً بهداشتی با برچسب برند خوشنوش و شماره تماس شما.
+  </footer>
+
+  <script>
+    const benefits = [
+      "چای میوه خوشنوش سرشار از آنتی‌اکسیدان برای سلامت قلب شماست.",
+      "ترکیب بهترین سیب‌ها از مناطق مختلف ایران، حس ناب طبیعت در هر فنجان.",
+      "فاقد کافئین، مناسب برای تمام سنین و ساعات روز.",
+      "کمک به بهبود سیستم گوارش و آرامش اعصاب.",
+      "تقویت‌کننده‌ی انرژی روزانه با طعمی ماندگار.",
+      "لوکس‌ترین تجربه‌ی چای میوه‌ای با اصالت ایرانی.",
+      "فاقد افزودنی‌های شیمیایی و نگهدارنده، ۱۰۰٪ طبیعی.",
+      "بهبود کیفیت خواب با نوشیدن قبل از خواب شبانه."
+    ];
+    let current = 0;
+    const slideBox = document.getElementById("slides");
+
+    function showSlide() {
+      slideBox.style.opacity = 0;
+      setTimeout(() => {
+        slideBox.innerText = benefits[current];
+        slideBox.style.opacity = 1;
+        current = (current + 1) % benefits.length;
+      }, 500);
+    }
+    showSlide();
+    setInterval(showSlide, 10000);
+
+    function calculateTotal() {
+      const count = document.getElementById("count").value;
+      const total = count * 95000;
+      document.getElementById("totalPrice").innerText = `قیمت کل: ${total.toLocaleString()} تومان`;
+    }
+  </script>
+</body>
+</html>
