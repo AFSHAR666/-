@@ -18,10 +18,6 @@
       padding: 2rem;
       text-align: center;
     }
-    header h1 {
-      font-size: 2.5rem;
-      margin: 0;
-    }
     .container {
       padding: 2rem;
     }
@@ -58,15 +54,35 @@
       font-size: 1.4rem;
       background: #eee;
     }
+    .benefits, .about, .contact {
+      background: #ffffffdd;
+      margin-top: 2rem;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .benefits p {
+      font-size: 1.2rem;
+      color: #4e342e;
+    }
   </style>
 </head>
 <body>
+
   <header>
     <p style="font-size: 45px; color: #D4AF37; font-weight: 900;">چای میوه خوش نوش</p>
     <p>چای خوش نوش جرعه‌ای از اصالت، آرامش و طعم ناب طبیعت...</p>
   </header>
 
   <div class="container">
+    <!-- کادر فواید چای سیب -->
+    <section class="benefits">
+      <h3 style="color: #2e7d32;">فواید چای سیب</h3>
+      <p id="benefitText">سرشار از آنتی‌اکسیدان و ضدپیری</p>
+    </section>
+
+    <!-- فرم سفارش -->
     <section class="section">
       <h2 style="color: teal;">فرم سفارش</h2>
       <form onsubmit="submitOrder(); return false;">
@@ -79,6 +95,19 @@
         <div id="totalPrice">قیمت کل: ۰ تومان</div>
         <button type="submit">ثبت سفارش</button>
       </form>
+    </section>
+
+    <!-- کادر درباره ما -->
+    <section class="about">
+      <h3>درباره ما</h3>
+      <p>چای میوه خوش‌نوش با بهره‌گیری از بهترین میوه‌های خشک و بسته‌بندی کاملاً بهداشتی، تجربه‌ای متفاوت از نوشیدن چای را برای شما به ارمغان می‌آورد.</p>
+    </section>
+
+    <!-- کادر ارتباط با ما -->
+    <section class="contact">
+      <h3>ارتباط با ما</h3>
+      <p>شماره تماس: ۰۹۳۹۸۲۳۴۶۴۴</p>
+      <p>آیدی تلگرام: @ATLAS515</p>
     </section>
   </div>
 
@@ -105,6 +134,19 @@
       localStorage.setItem("lastOrder", JSON.stringify(order));
       window.location.href = "success.html";
     }
+// فواید چای سیب (هر ۱۰ ثانیه تغییر)
+    const benefits = [
+      "سرشار از آنتی‌اکسیدان و ضدپیری",
+      "کمک به تقویت سیستم ایمنی بدن",
+      "موثر در بهبود عملکرد دستگاه گوارش",
+      "آرام‌بخش و کاهش‌دهنده استرس",
+      "پاکسازی بدن از سموم و رادیکال‌های آزاد"
+    ];
+    let current = 0;
+    setInterval(() => {
+      current = (current + 1) % benefits.length;
+      document.getElementById("benefitText").innerText = benefits[current];
+    }, 10000);
   </script>
 </body>
 </html>
