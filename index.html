@@ -1,136 +1,110 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>چای میوه خوش نوش</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       margin: 0;
       font-family: Sahel, sans-serif;
-      background: linear-gradient(to bottom, #fdf6ec, #f1d8b0);
+      background: linear-gradient(to bottom, #fefcea, #f1daab);
       color: #333;
+      line-height: 1.6;
     }
     header {
-      background-color: #b84e2f;
+      background-color: #1b5e20;
       color: white;
-      padding: ۱۶px;
+      padding: 2rem;
       text-align: center;
-      font-size: ۲۴px;
-      font-weight: bold;
     }
-    .slogan {
-      text-align: center;
-      margin: ۲۰px;
-      font-size: ۱۸px;
-      background: rgba(255,255,255,0.8);
-      padding: ۱۲px;
-      border-radius: ۱۲px;
-      font-weight: bold;
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
     }
-    .form-box {
+    .container {
+      padding: 2rem;
+    }
+    .section {
       background: white;
-      max-width: ۴۰۰px;
-      margin: auto;
-      padding: ۲۰px;
-      border-radius: ۱۲px;
-      box-shadow: ۰ ۴px ۸px rgba(0,0,0,0.2);
+      margin: 2rem 0;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
-    .form-box input {
-      width: ۱۰۰%;
-      padding: ۱۰px;
-      margin-top: ۸px;
-      margin-bottom: ۱۶px;
-      border: ۱px solid #ccc;
-      border-radius: ۸px;
-    }
-    .form-box button {
-      background-color: #b84e2f;
-      color: white;
-      padding: ۱۰px;
-      border: none;
-      border-radius: ۸px;
-      width: ۱۰۰%;
-      font-size: ۱۶px;
-      cursor: pointer;
-    }
-    .form-box button:hover {
-      background-color: #9c3f28;
-    }
-    .footer-buttons {
+    form {
       display: flex;
-      justify-content: center;
-      gap: ۲۰px;
-      margin-top: ۳۰px;
+      flex-direction: column;
+      gap: 1rem;
     }
-    .footer-buttons button {
-      background: #ddd;
+    input {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 1rem;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #43a047;
+      color: white;
+      padding: 1rem;
       border: none;
-      padding: ۸px ۱۶px;
-      border-radius: ۸px;
+      border-radius: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
     }
-    .footer-buttons button:hover {
-      background: #bbb;
-    }
-    .panel {
-      display: none;
-      margin-top: ۱۰px;
-      background: #fff8e1;
-      padding: ۱۵px;
-      border-radius: ۸px;
-      max-width: ۵۰۰px;
-      margin: ۱۰px auto;
-    }
-    .weight-info {
-      font-size: ۱۲px;
-      color: #777;
-      margin-bottom: ۱۰px;
+    footer {
+      text-align: center;
+      padding: 4rem;
+      font-size: 1.4rem;
+      background: #eee;
     }
   </style>
 </head>
 <body>
+  <header>
+    <p style="font-size: 45px; color: #D4AF37; font-weight: 900;">چای میوه خوش نوش</p>
+    <p>چای خوش نوش جرعه‌ای از اصالت، آرامش و طعم ناب طبیعت...</p>
+  </header>
 
-<header>چای میوه خوش نوش</header>
+  <div class="container">
+    <section class="section">
+      <h2 style="color: teal;">فرم سفارش</h2>
+      <form onsubmit="submitOrder(); return false;">
+        <input id="name" type="text" placeholder="نام و نام خانوادگی" required />
+        <input id="phone" type="text" placeholder="شماره تماس" required />
+        <input id="address" type="text" placeholder="شهر و آدرس دقیق" required />
+        <input id="post" type="text" placeholder="کد پستی" required />
+        <input id="count" type="number" placeholder="تعداد بسته (هر بسته ۹۵ هزار تومان)" min="1" required oninput="calculateTotal()" />
+        <div>وزن هر بسته: ۲۵۰ گرم</div>
+        <div id="totalPrice">قیمت کل: ۰ تومان</div>
+        <button type="submit">ثبت سفارش</button>
+      </form>
+    </section>
+  </div>
 
-<div class="slogan">طبیعت را در فنجان خود تجربه کنید 🍃</div>
+  <footer>
+    بسته‌بندی با پاکت‌های زیپ‌دار و کاملاً بهداشتی می‌باشد.
+  </footer>
 
-<div class="form-box">
-  <div class="weight-info">وزن هر بسته: ۲۵۰ گرم</div>
-  <input type="text" id="name" placeholder="نام و نام خانوادگی">
-  <input type="tel" id="phone" placeholder="شماره تماس">
-  <input type="text" id="address" placeholder="شهر و آدرس کامل">
-  <input type="text" id="postal" placeholder="کد پستی">
-  <input type="number" id="count" placeholder="تعداد بسته" oninput="calculatePrice()">
-  <div id="price">قیمت کل: ۰ تومان</div>
-  <button onclick="submitOrder()">ثبت سفارش</button>
-</div>
+  <script>
+    function calculateTotal() {
+      const count = parseInt(document.getElementById("count").value || "0");
+      const total = count * 95000;
+      document.getElementById("totalPrice").innerText = قیمت کل: ${total.toLocaleString()} تومان;
+    }
 
-<div class="footer-buttons">
-  <button onclick="togglePanel('about')">درباره ما</button>
-  <button onclick="togglePanel('contact')">ارتباط با ما</button>
-</div>
-
-<div class="panel" id="about">چای خوش‌نوش با ترکیبی از میوه‌های طبیعی و فرآیند بسته‌بندی کاملاً بهداشتی، لحظاتی خوش و سالم برای شما رقم می‌زند.</div>
-<div class="panel" id="contact">شماره تماس: ۰۹۳۹۸۲۳۴۶۴۴<br>آیدی تلگرام: @ATLAS515</div>
-
-<script>
-  function togglePanel(id) {
-    document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
-    document.getElementById(id).style.display = 'block';
-  }
-
-  function calculatePrice() {
-    const count = parseInt(document.getElementById('count').value) || 0;
-    const price = count * 95000;
-    document.getElementById('price').innerText = قیمت کل: ${price.toLocaleString()} تومان;
-  }
-
-  function submitOrder() {
-    // اینجا می‌تونی به درگاه یا admin.html متصل کنی
-    window.location.href = "success.html";
-  }
-</script>
-
+    function submitOrder() {
+      const order = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
+        post: document.getElementById("post").value,
+        count: document.getElementById("count").value,
+        status: "در حال پرداخت"
+      };
+      localStorage.setItem("lastOrder", JSON.stringify(order));
+      window.location.href = "success.html";
+    }
+  </script>
 </body>
 </html>
