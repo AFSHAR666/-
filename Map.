@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تبدیل عکس به متن با پرداخت آنلاین</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; padding: 20px; text-align: center; }
+    #output { white-space: pre-wrap; background: #fff; border: 1px solid #ccc; padding: 10px; min-height: 150px; margin-top: 20px; }
+    #payBtn, #convertBtn { padding: 10px 20px; margin: 10px; font-size: 16px; cursor: pointer; }
+    #payBtn { background-color: #007bff; color: white; border: none; }
+    #payBtn:disabled { background-color: #aaa; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <h1>تبدیل عکس به متن قابل کپی با پرداخت ۱۰۰ تومان</h1>
+  <input type="file" id="imageInput" accept="image/*" />
+  <div>
+    <button id="payBtn" disabled>پرداخت ۱۰۰ تومان</button>
+    <button id="convertBtn" disabled>تبدیل عکس به متن</button>
+  </div>
+  <div id="output">متن استخراج شده اینجا نمایش داده می‌شود...</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
+  <script>
+    const imageInput = document.getElementById('imageInput');
+    const payBtn = document.getElementById('payBtn');
+    const convertBtn = document.getElementById('convertBtn');
+    const outputDiv = document.getElementById('output');
+
+    let paid = false;
+    let imageData = null;
+
+    imageInput.addEventListener('change', () => {
+      if(imageInput.files.length > 0) {
+        payBtn.disabled = false;
+        convertBtn.disabled = true;
+        outputDiv.textContent = "لطفا ابتدا پرداخت را انجام دهید.";
+        paid = false;
+        imageData = null;
+      } else {
+        payBtn.disabled = true;
+        convertBtn.disabled = true;
+        outputDiv.textContent = "متن استخراج شده اینجا نمایش داده می‌شود...";
+      }
+    });
+
+    payBtn.addEventListener('click', () => {
+      // اینجا باید لینک پرداخت زرین‌پال را وارد کنید
+      // Example: const paymentUrl = "https://www.zarinpal.com/...";
+      const paymentUrl = "https://YOUR_ZARINPAL_PAYMENT_LINK_HERE";
+      
+      // باز کردن صفحه پرداخت در پنجره جدید
+      const paymentWindow = window.open(paymentUrl, "_blank");
+
+      // این قسمت ساده‌س، برای نمونه ما منتظر بسته شدن پنجره پرداخت می‌مونیم و فرض می‌کنیم پرداخت موفق است
+      // در عمل باید از webhook یا callback استفاده کرد یا صفحه تایید پرداخت داشت
+      const checkPayment = setInterval(() => {
+        if(paymentWindow.closed) {
+          clearInterval(checkPayment);
+          // فرض موفقیت پرداخت
+          paid = true;
+          outputDiv.textContent = "پرداخت با موفقیت انجام شد. حالا می‌توانید تبدیل را انجام دهید.";
+          convertBtn.disabled = false;
+          payBtn.disabled = true;
+        }
+      }, 1000);
+    });
+
+    convertBtn.addEventListener('click', () => {
+      if(!paid) {
+        outputDiv.textContent = "لطفا ابتدا پرداخت را انجام دهید.";
+        return;
+      }
+
+      const file = imageInput.files[0];
+      if (!file) {
+        outputDiv.textContent = "لطفا ابتدا عکس را انتخاب کنید.";
+        return;
+      }
+
+      outputDiv.textContent = "در حال پردازش تصویر...";
+
+      const reader = new FileReader();
+      reader.onload = function () {
+        Tesseract.recognize(
+          reader.result,
+          'eng+fas+ara',
+          { logger: m => console.log(m) }
+        ).then(({ data: { text } }) => {
+          outputDiv.textContent = text;
+          // بعد از تبدیل می‌توانید اینجا عملیات ذخیره یا ارسال به سرور اضافه کنید
+        }).catch(err => {
+          outputDiv.textContent = "خطا در پردازش تصویر.";
+          console.error(err);
+        });
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
